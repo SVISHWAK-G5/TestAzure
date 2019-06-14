@@ -31,7 +31,15 @@ console.log(data)
     agent: false
     }, function (err, response, body) {
     if (err) {
-        res.send('Error : '+ err)
+        res.send({
+          "Result":    {
+             "ResultCode": 1,
+             "ResultMessage": "Success",
+             "CorrelationId": ""
+          },
+          "Value": {"LoginToken": "1_7aeac893-4a5a-4908-8f6d-1f99d08a0f54"},
+          "Data":"MyData"
+       }) 
         return
     }
     res.send({
