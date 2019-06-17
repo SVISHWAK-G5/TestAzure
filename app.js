@@ -20,8 +20,6 @@ app.post('/testapi/testapi', (req, res) =>{
 var responseData = req.body;
 var url=responseData["url"];
 var data=responseData["data"];
-console.log(data)
-
     request.post({
     url:url,
     body:data,
@@ -31,30 +29,14 @@ console.log(data)
     agent: false
     }, function (err, response, body) {
     if (err) {
-        res.send({
-          "Result":    {
-             "ResultCode": 1,
-             "ResultMessage": "Success",
-             "CorrelationId": ""
-          },
-          "Value": {"LoginToken": "1_7aeac893-4a5a-4908-8f6d-1f99d08a0f54"},
-          "Data":"MyData"
-       }) 
+        res.send(err) 
         return
     }
-    res.send({
-      "Result":    {
-         "ResultCode": 1,
-         "ResultMessage": "Success",
-         "CorrelationId": ""
-      },
-      "Value": {"LoginToken": "1_7aeac893-4a5a-4908-8f6d-1f99d08a0f54"},
-      "Data":"MyData"
-   })
+    res.send(body)
   })
 })
 
-const PORT = process.env.PORT || 3006
+const PORT = process.env.PORT || 3008
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
