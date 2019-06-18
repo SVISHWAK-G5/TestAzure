@@ -13,7 +13,7 @@ app.use(express.json({
 }))
 
 app.get('/test/testapi',(req,res)=>{
-  res.send(JSON.stringify('working fine'));
+  res.send('working fine');
 })
 
 app.post('/testapi/testapi', (req, res) =>{
