@@ -36,16 +36,14 @@ var data=responseData["data"];
   })
 })
 
-const PORT = process.env.PORT || 3008
+app.post('/testapi2/testapi2', (req, res) =>{
+  console.log('hi')
+      res.send("hello");
+  })
+
+
+const PORT = process.env.PORT || 3009
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
 
-// {
-// 	"url":"https://inads20/NICEConnectAPI/Login.svc/Rest/clientLoginWithDomain",
-// 	"data": {
-// 	"OsLogin":"apitest2",
-// 	"Password": "nicecti",
-// 	"Domain": "actdev"
-// 	} 
-// }
